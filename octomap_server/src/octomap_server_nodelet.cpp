@@ -40,21 +40,18 @@
 #include <nodelet/nodelet.h>
 
 
-namespace octomap_server
-{
+namespace octomap_server{
 
-class OctomapServerNodelet : public nodelet::Nodelet
-{
-public:
-  virtual void onInit()
-  {
-    NODELET_DEBUG("Initializing octomap server nodelet ...");
-    server_.reset(new OctomapServer(this->getPrivateNodeHandle()));
-  }
-private:
-  boost::shared_ptr<OctomapServer> server_;
-};
+class OctomapServerNodelet : public nodelet::Nodelet{
+	public:
+	  virtual void onInit()
+	  {
+	    NODELET_DEBUG("Initializing octomap server nodelet ...");
+	    server_.reset(new OctomapServer(this->getPrivateNodeHandle()));
+	  }
+	private:
+	  boost::shared_ptr<OctomapServer> server_;
+	};
+} 
 
-} // namespace
-
-PLUGINLIB_DECLARE_CLASS(octomap_server, OctomapServerNodelet, octomap_server::OctomapServerNodelet, nodelet::Nodelet);
+//PLUGINLIB_DECLARE_CLASS(octomap_server, OctomapServerNodelet, octomap_server::OctomapServerNodelet, nodelet::Nodelet);
